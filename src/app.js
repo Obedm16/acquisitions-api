@@ -1,4 +1,4 @@
-import express from "express";
+import express from 'express';
 
 const app = express();
 
@@ -8,8 +8,8 @@ const app = express();
 //   console.log(`Listening on port ${PORT}...`)
 // })
 
-app.get("/", (req, res) => {
-  res.status(200).send("You are interating with acquisitions!");
+app.get('/', (req, res) => {
+  res.status(200).send('You are interating with acquisitions!');
 });
 
 export default app;
