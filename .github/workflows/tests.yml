@@ -1,0 +1,79 @@
+name: Tests
+
+on:
+  push:
+    branches: [main, staging]
+  pull_request:
+    branches: [main, staging]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          cache: 'npm'
+          
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Run tests
+        run: npm test
+        env:
+          NODE_ENV: test
+          NODE_OPTIONS: --experimental-vm-modules
+          DATABASE_URL: ${{ secrets.TEST_DATABASE_URL || 'sqlite://./test.db' }}
+        continue-on-error: true
+        id: tests
+        
+      - name: Upload coverage reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-reports
+          path: coverage/
+          retention-days: 30
+          if-no-files-found: warn
+          
+      - name: Generate test summary
+        if: always()
+        run: |
+          if [ -f coverage/lcov-report/index.html ]; then
+            COVERAGE_PERCENT=$(grep -o 'headerCovTableEntryLo">[0-9.]*%' coverage/lcov-report/index.html | head -1 | sed 's/.*>\([0-9.]*\)%.*/\1/' || echo "N/A")
+            echo "## Test Results 🧪" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            if [ "${{ steps.tests.outcome }}" == "success" ]; then
+              echo "✅ **Tests Status:** PASSED" >> $GITHUB_STEP_SUMMARY
+            else
+              echo "❌ **Tests Status:** FAILED" >> $GITHUB_STEP_SUMMARY
+            fi
+            echo "📊 **Coverage:** ${COVERAGE_PERCENT}%" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "Coverage report uploaded as artifact and available for 30 days." >> $GITHUB_STEP_SUMMARY
+          else
+            echo "## Test Results 🧪" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            if [ "${{ steps.tests.outcome }}" == "success" ]; then
+              echo "✅ **Tests Status:** PASSED" >> $GITHUB_STEP_SUMMARY
+            else
+              echo "❌ **Tests Status:** FAILED" >> $GITHUB_STEP_SUMMARY
+            fi
+            echo "📊 **Coverage:** Report not found" >> $GITHUB_STEP_SUMMARY
+          fi
+          
+      - name: Annotate test failures
+        if: failure() && steps.tests.outcome == 'failure'
+        run: |
+          echo "::error::Tests failed. Please review the test output above and fix failing tests."
+          
+      - name: Fail workflow if tests failed
+        if: steps.tests.outcome == 'failure'
+        run: |
+          echo "::error::Test suite failed. Please fix failing tests before merging."
+          exit 1
