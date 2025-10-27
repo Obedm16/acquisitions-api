@@ -1,0 +1,40 @@
+services:
+  neon-local:
+    image: neondatabase/neon_local:latest
+    container_name: neon-local
+    ports:
+      - "5432:5432"
+    env_file:
+      - .env.development
+    restart: unless-stopped
+
+  app:
+    build:
+      context: .
+      target: devdeps
+    container_name: production-api-dev
+    command: sh -c "npm ci && npm run dev"
+    env_file:
+      - .env.development
+    environment:
+      # Example fallback if not set in env file
+      PORT: ${PORT:-4001}
+    depends_on:
+      - neon-local
+    ports:
+      - "4001:4001"
+    volumes:
+      - .:/app
+      - app_node_modules:/app/node_modules
+    develop:
+      watch:
+        - action: sync
+          path: .
+          target: /app
+          ignore:
+            - node_modules/
+            - logs/
+            - drizzle/
+
+volumes:
+  app_node_modules:
