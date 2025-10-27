@@ -12,6 +12,6 @@ const router = express.Router();
 router.get('/', authenticateToken, fetchAllUsers);
 router.get('/:id', authenticateToken, getUserByIdController);
 router.put('/:id', authenticateToken, updateUser);
-router.delete('/:id', authenticateToken, requireRole['admin'], deleteUser);
+router.delete('/:id', authenticateToken, requireRole(['admin']), deleteUser);
 
 export default router;
