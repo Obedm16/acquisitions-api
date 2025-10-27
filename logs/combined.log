@@ -1,0 +1,31 @@
+{"level":"info","message":"Hello from service production!","service":"production-api"}
+{"level":"info","message":"::1 - - [24/Oct/2025:19:25:06 +0000] \"GET / HTTP/1.1\" 304 - \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36\"","service":"production-api"}
+{"level":"info","message":"::1 - - [24/Oct/2025:19:25:06 +0000] \"GET /favicon.ico HTTP/1.1\" 404 150 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36\"","service":"production-api"}
+{"level":"info","message":"Hello from service production!","service":"production-api"}
+{"level":"info","message":"::1 - - [24/Oct/2025:19:25:10 +0000] \"GET / HTTP/1.1\" 304 - \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36\"","service":"production-api"}
+{"level":"info","message":"Hello from service production!","service":"production-api"}
+{"level":"info","message":"::1 - - [24/Oct/2025:19:25:17 +0000] \"GET / HTTP/1.1\" 304 - \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36\"","service":"production-api"}
+{"level":"info","message":"Hello from service production!","service":"production-api"}
+{"level":"info","message":"::1 - - [24/Oct/2025:19:25:34 +0000] \"GET / HTTP/1.1\" 304 - \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36\"","service":"production-api"}
+{"level":"info","message":"Hello from service production!","service":"production-api"}
+{"level":"info","message":"::1 - - [25/Oct/2025:05:59:41 +0000] \"GET / HTTP/1.1\" 304 - \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36\"","service":"production-api"}
+{"level":"info","message":"::1 - - [25/Oct/2025:05:59:50 +0000] \"GET /health HTTP/1.1\" 200 76 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36\"","service":"production-api"}
+{"level":"info","message":"::1 - - [25/Oct/2025:06:02:05 +0000] \"POST / HTTP/1.1\" 404 140 \"-\" \"PostmanRuntime/7.46.0\"","service":"production-api"}
+{"level":"info","message":"::1 - - [25/Oct/2025:06:02:20 +0000] \"POST / HTTP/1.1\" 404 140 \"-\" \"PostmanRuntime/7.46.0\"","service":"production-api"}
+{"level":"info","message":"::1 - - [25/Oct/2025:06:02:34 +0000] \"GET /health HTTP/1.1\" 200 76 \"-\" \"PostmanRuntime/7.46.0\"","service":"production-api"}
+{"level":"info","message":"::1 - - [25/Oct/2025:07:49:24 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 404 156 \"-\" \"PostmanRuntime/7.46.0\"","service":"production-api"}
+{"level":"info","message":"::1 - - [25/Oct/2025:07:53:49 +0000] \"POST /sign-up HTTP/1.1\" 404 147 \"-\" \"PostmanRuntime/7.46.0\"","service":"production-api"}
+{"level":"info","message":"::1 - - [25/Oct/2025:07:54:57 +0000] \"POST /sign-up HTTP/1.1\" 404 147 \"-\" \"PostmanRuntime/7.46.0\"","service":"production-api"}
+{"level":"info","message":"::1 - - [25/Oct/2025:07:56:04 +0000] \"POST /sign-up HTTP/1.1\" 404 147 \"-\" \"PostmanRuntime/7.46.0\"","service":"production-api"}
+{"level":"info","message":"::1 - - [25/Oct/2025:07:56:59 +0000] \"POST /sign-up HTTP/1.1\" 404 147 \"-\" \"PostmanRuntime/7.46.0\"","service":"production-api"}
+{"level":"info","message":"::1 - - [25/Oct/2025:07:57:10 +0000] \"POST /sign-up HTTP/1.1\" 404 147 \"-\" \"PostmanRuntime/7.46.0\"","service":"production-api"}
+{"level":"info","message":"::1 - - [25/Oct/2025:08:00:14 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 400 92 \"-\" \"PostmanRuntime/7.46.0\"","service":"production-api"}
+{"level":"info","message":"User registered successfully: mikeoduoli@gmail.com","service":"production-api"}
+{"level":"info","message":"::1 - - [25/Oct/2025:08:02:37 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 200 112 \"-\" \"PostmanRuntime/7.46.0\"","service":"production-api"}
+{"level":"info","message":"User mikeoduoli@gmail.com created succesfully!","service":"production-api"}
+{"level":"info","message":"User registered successfully: mikeoduoli@gmail.com","service":"production-api"}
+{"level":"info","message":"::1 - - [25/Oct/2025:08:52:18 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 200 90 \"-\" \"PostmanRuntime/7.46.0\"","service":"production-api"}
+{"level":"info","message":"::1 - - [25/Oct/2025:09:33:30 +0000] \"GET /health HTTP/1.1\" 200 75 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36\"","service":"production-api"}
+{"level":"info","message":"::1 - - [25/Oct/2025:09:33:30 +0000] \"GET /favicon.ico HTTP/1.1\" 404 150 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36\"","service":"production-api"}
+{"level":"info","message":"::1 - - [25/Oct/2025:09:33:36 +0000] \"GET /health HTTP/1.1\" 200 76 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36\"","service":"production-api"}
+{"level":"info","message":"::1 - - [25/Oct/2025:09:35:24 +0000] \"GET /health HTTP/1.1\" 200 76 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36\"","service":"production-api"}
