@@ -91,7 +91,17 @@ const config = {
   // ],
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
-  // moduleNameMapper: {},
+  moduleNameMapper: {
+    '^#src/(.*)$': '<rootDir>/src/$1',
+    '^#config/(.*)$': '<rootDir>/src/config/$1',
+    '^#controllers/(.*)$': '<rootDir>/src/controllers/$1',
+    '^#middleware/(.*)$': '<rootDir>/src/middleware/$1',
+    '^#models/(.*)$': '<rootDir>/src/models/$1',
+    '^#routes/(.*)$': '<rootDir>/src/routes/$1',
+    '^#services/(.*)$': '<rootDir>/src/services/$1',
+    '^#utils/(.*)$': '<rootDir>/src/utils/$1',
+    '^#validations/(.*)$': '<rootDir>/src/validations/$1'
+  },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
   // modulePathIgnorePatterns: [],
@@ -135,7 +145,7 @@ const config = {
   // runner: "jest-runner",
 
   // The paths to modules that run some code to configure or set up the testing environment before each test
-  // setupFiles: [],
+  setupFiles: ['<rootDir>/test/setup.js'],
 
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
   // setupFilesAfterEnv: [],
@@ -148,6 +158,9 @@ const config = {
 
   // The test environment that will be used for testing
   testEnvironment: 'node',
+
+  // Use native ESM
+  preset: null,
 
   // Options that will be passed to the testEnvironment
   // testEnvironmentOptions: {},

@@ -29,3 +29,9 @@
 {"level":"info","message":"::1 - - [25/Oct/2025:09:33:30 +0000] \"GET /favicon.ico HTTP/1.1\" 404 150 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36\"","service":"production-api"}
 {"level":"info","message":"::1 - - [25/Oct/2025:09:33:36 +0000] \"GET /health HTTP/1.1\" 200 76 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36\"","service":"production-api"}
 {"level":"info","message":"::1 - - [25/Oct/2025:09:35:24 +0000] \"GET /health HTTP/1.1\" 200 76 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36\"","service":"production-api"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [27/Oct/2025:19:16:21 +0000] \"GET /health HTTP/1.1\" 200 72 \"-\" \"-\"","service":"production-api"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [27/Oct/2025:19:16:21 +0000] \"GET /api HTTP/1.1\" 200 40 \"-\" \"-\"","service":"production-api"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [27/Oct/2025:19:16:21 +0000] \"GET /nonexsistent HTTP/1.1\" 404 33 \"-\" \"-\"","service":"production-api"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [27/Oct/2025:19:17:12 +0000] \"GET /health HTTP/1.1\" 200 73 \"-\" \"-\"","service":"production-api"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [27/Oct/2025:19:17:12 +0000] \"GET /api HTTP/1.1\" 200 40 \"-\" \"-\"","service":"production-api"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [27/Oct/2025:19:17:13 +0000] \"GET /nonexsistent HTTP/1.1\" 404 33 \"-\" \"-\"","service":"production-api"}
