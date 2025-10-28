@@ -37,7 +37,9 @@ jobs:
             org.opencontainers.image.description=Production API Docker image
             org.opencontainers.image.vendor=Production API Team
             
-      - name: Build and push Docker image
+      - name: Build and push Docker image (multi-platform)
+        id: build-multi
+        continue-on-error: true
         uses: docker/build-push-action@v5
         with:
           context: .
@@ -47,8 +49,25 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+          provenance: false
+          sbom: false
+          
+      - name: Build and push Docker image (fallback amd64 only)
+        if: steps.build-multi.outcome == 'failure'
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          platforms: linux/amd64
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          provenance: false
+          sbom: false
           
       - name: Generate summary
+        if: always()
         run: |
           echo "## Docker Image Published 🐳" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
@@ -59,7 +78,11 @@ jobs:
           echo "${{ steps.meta.outputs.tags }}" | sed 's/^/- /' >> $GITHUB_STEP_SUMMARY
           echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "**Platforms:** linux/amd64, linux/arm64" >> $GITHUB_STEP_SUMMARY
+          if [ "${{ steps.build-multi.outcome }}" == "success" ]; then
+            echo "**Platforms:** linux/amd64, linux/arm64 (multi-platform)" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "**Platforms:** linux/amd64 (fallback - arm64 build failed)" >> $GITHUB_STEP_SUMMARY
+          fi
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "**Pull command:**" >> $GITHUB_STEP_SUMMARY
           echo "\`\`\`bash" >> $GITHUB_STEP_SUMMARY
