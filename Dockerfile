@@ -23,12 +23,11 @@ RUN --mount=type=cache,id=npm-cache,target=/root/.npm \
 
 # ---- Production runtime ----
 FROM base AS runtime
-# Create non-root user
-RUN addgroup -S nodejs && adduser -S node -G nodejs
+# Use existing node user from base image
 USER node
 
 # Copy node_modules from deps stage
-COPY --chown=node:node --from=deps /app/node_modules ./node_modules
+COPY --from=deps --chown=node:node /app/node_modules ./node_modules
 
 # Copy application source
 COPY --chown=node:node . .
